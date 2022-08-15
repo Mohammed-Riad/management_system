@@ -1,0 +1,103 @@
+*
+{
+padding: 0;
+margin: 0;
+}
+.nav a
+{
+    text-decoration:none ;
+}
+
+.nav
+{
+    background-color: #1976d2;
+    color: white;
+    
+   
+}
+.bg-dark img
+{
+    width: 80px;
+}
+
+#navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    top: 0;
+    z-index: 1;
+    
+
+}
+#navbar ul 
+{
+    list-style: none;
+    display: flex;
+    padding-right: 30px;
+    font-size: 22px;
+   
+}
+#navbar ul li
+{
+    color: #fff;
+    padding: 0.90rem;
+    transition: 0.5s;
+}
+
+#navbar ul li:hover
+{
+    background-color: black;
+    border-radius: 5px;
+   
+}
+.nav  li a
+{
+    text-decoration: none;
+}
+
+#N
+{
+    animation-name: Hamodeh;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+}
+.sec
+{
+    width: 100%;
+    height: 79.75vh;
+}
+#footer
+{
+    background-color: #1976d2;
+    color: white;
+padding: 12px;
+}
+#footer .container p
+{
+    padding-top: 10px;
+}
+.cc
+{
+    margin: 3px;
+    color: red;
+    justify-content:s;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    flex-flow: column;
+    align-content: flex-start;
+    font-size: 22px;
+    font-weight: bolder;
+}
+@keyframes Hamodeh {
+    10% {
+        color: black;
+    }
+
+    30% {
+        color: #999;
+    }
+}
