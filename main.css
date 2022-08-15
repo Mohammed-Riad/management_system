@@ -101,3 +101,10 @@ padding: 12px;
         color: #999;
     }
 }
+.sec
+{
+    background-image: url(img/2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
