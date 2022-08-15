@@ -6,7 +6,7 @@ management system for a company, where they can organize their employees with th
 <h4>Task 1</h4>
 You will create a constructor to generate an employee object which will be
 
-Live URL(https://mohammed-riad.github.io/management-system/)
+Live URL(https://mohammed-riad.github.io/management_system/)
 
 rendered in the main section from your app.js file.
 
