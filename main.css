@@ -1,60 +1,65 @@
 *
 {
-padding: 0;
-margin: 0;
+    padding: 0;
+    margin: 0;
+ 
 }
-.nav a
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th, td{
+    padding: 10px 20px;
+    border: 1px solid #000;
+}
+.navbar
 {
-    text-decoration:none ;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    padding: 12px;
 }
-
+.logo
+{
+    width: 50px;
+    cursor: pointer;
+    margin: 30px 0;
+}
+.menu-icon
+{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
 .nav
 {
-    background-color: #1976d2;
-    color: white;
+    flex: 1;
+    text-align: right;
     
+}
+.nav ul li
+{
+    list-style: none ;
+    display: inline-block;
+    margin-right: 30px;
+   
    
 }
-.bg-dark img
-{
-    width: 80px;
-}
-
-#navbar
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    top: 0;
-    z-index: 1;
-    
-
-}
-#navbar ul 
-{
-    list-style: none;
-    display: flex;
-    padding-right: 30px;
-    font-size: 22px;
-   
-}
-#navbar ul li
-{
-    color: #fff;
-    padding: 0.90rem;
-    transition: 0.5s;
-}
-
-#navbar ul li:hover
-{
-    background-color: black;
-    border-radius: 5px;
-   
-}
-.nav  li a
+.nav ul a li
 {
     text-decoration: none;
+    color:black;
+    font-size: 23px;
+    transition: 0.5s;
+    
+}
+.nav ul a li:hover
+{
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    transition:1s;
 }
 
 #N
@@ -65,33 +70,15 @@ margin: 0;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 40px;
 }
-.sec
+.e
 {
-    width: 100%;
-    height:100vh;
+    
 }
-#footer
-{
-    background-color: #1976d2;
-    color: white;
-padding: 12px;
+
+#Full {
+    color: #fff;
 }
-#footer .container p
-{
-    padding-top: 10px;
-}
-.cc
-{
-    margin: 3px;
-    color: red;
-    justify-content:s;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-    flex-flow: column;
-    align-content: flex-start;
-    font-size: 22px;
-    font-weight: bolder;
-}
+
 @keyframes Hamodeh {
     10% {
         color: black;
@@ -101,10 +88,4 @@ padding: 12px;
         color: #999;
     }
 }
-.sec
-{
-    background-image: url(img/2.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
