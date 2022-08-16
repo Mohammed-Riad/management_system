@@ -126,6 +126,7 @@ document.getElementById("form").addEventListener('submit',function(e)
   div.style.background="#1976d2"
   div.style.color="black";
   div.style.fontSize="20px"
+  div.style.border="5px solid black"
 
   div.style.margin="10px"
   document.body.appendChild(document.getElementById("form"))
@@ -133,20 +134,19 @@ document.getElementById("form").addEventListener('submit',function(e)
   img.style.width="100%"
   img.style.height="70px"
   div.appendChild(img)
-  document.getElementById("form").appendChild(div)
+  document.getElementById("container").appendChild(div)
 
   arr=[id.value,name.value,select.value,select1.value ]
   for(let i=0;i<arr.length;i++ )
   {
       
       let card=document.createElement("p");
+      card.style.paddingLeft="5px"
       card.textContent=arr[i]
       div.appendChild(card)
      
   }
 
-
-  
 
 
 
