@@ -144,3 +144,9 @@ fieldset
     grid-template-columns: 220px 220px 220px;
     margin-top: 20px;
 }
+#image
+{
+    width: 70%;
+    height: 20px;
+    border-radius: 2px;
+}

@@ -113,7 +113,7 @@ let name=document.getElementById("name");
 let select = document.getElementById('select');
 
 let select1 = document.getElementById('select1');
-let img=document.getElementById("img")
+let img=document.getElementById("image")
 
 
 document.getElementById("form").addEventListener('submit',function(e)
@@ -122,7 +122,7 @@ document.getElementById("form").addEventListener('submit',function(e)
   let div=document.createElement("div");
 
   div.style.width="200px"
-  div.style.height="250px";
+  div.style.height="260px";
   div.style.background="#1976d2"
   div.style.color="black";
   div.style.fontSize="20px"
@@ -135,13 +135,13 @@ document.getElementById("form").addEventListener('submit',function(e)
   img.style.height="70px"
   div.appendChild(img)
   document.getElementById("container").appendChild(div)
-
-  arr=[id.value,name.value,select.value,select1.value ]
+div.appendChild(img)
+  arr=[ id.value,name.value,select.value,select1.value ]
   for(let i=0;i<arr.length;i++ )
   {
       
       let card=document.createElement("p");
-      card.style.paddingLeft="5px"
+      card.style.paddingLeft="8px"
       card.textContent=arr[i]
       div.appendChild(card)
      
