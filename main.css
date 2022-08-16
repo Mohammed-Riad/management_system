@@ -108,7 +108,7 @@ th, td{
 }
 fieldset
 {
-    width: 40%;
+    width: 43.80%;
 }
 #name
 {
@@ -137,4 +137,10 @@ fieldset
 {
     background-color: #1976d2;
     transition: 1s;
+}
+#container
+{
+    display: grid;
+    grid-template-columns: 220px 220px 220px;
+    margin-top: 20px;
 }
