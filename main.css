@@ -1,9 +1,9 @@
-*
+/* *
 {
     padding: 0;
     margin: 0;
  
-}
+} */
 table{
     border-collapse: collapse;
     border-spacing: 0;
@@ -18,7 +18,8 @@ th, td{
     display: flex;
     align-items: center;
     background-color: #1976d2;
-    padding: 12px;
+    /* padding: 12px; */
+    height: 80px;
 }
 .logo
 {
@@ -89,3 +90,51 @@ th, td{
     }
 }
 
+.sec
+{
+    width: 100%;
+    height: 100vh;
+}
+#form
+{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#id
+{
+    width: 70%;
+    height: 20px;
+    border-radius: 2px;
+}
+fieldset
+{
+    width: 40%;
+}
+#name
+{
+    width: 70%;
+    height: 20px;
+    border-radius: 2px;
+}
+#select , #select1
+{
+    width: 70%;
+    height: 20px;
+    border-radius: 2px;
+}
+#img{
+    width: 100%;
+    height: 70px;
+}
+#submit
+{
+    width: 20%;
+    background-color: #000;
+    color: #fff;
+    
+}
+#submit:hover
+{
+    background-color: #1976d2;
+    transition: 1s;
+}
