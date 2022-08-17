@@ -122,10 +122,10 @@ document.getElementById("form").addEventListener('submit',function(e)
   let div=document.createElement("div");
 
   div.style.width="200px"
-  div.style.height="260px";
+  div.style.height="245px";
   div.style.background="#1976d2"
   div.style.color="black";
-  div.style.fontSize="20px"
+  div.style.fontSize="16.50px"
   div.style.border="5px solid black"
 
   div.style.margin="10px"
@@ -136,20 +136,38 @@ document.getElementById("form").addEventListener('submit',function(e)
   div.appendChild(img)
   document.getElementById("container").appendChild(div)
 div.appendChild(img)
-  arr=[ id.value,name.value,select.value,select1.value ]
-  for(let i=0;i<arr.length;i++ )
-  {
+  // arr=[ id.value,name.value,select.value,select1.value ]
+  // for(let i=0;i<arr.length;i++ )
+  // {
       
-      let card=document.createElement("p");
-      card.style.paddingLeft="8px"
-      card.textContent=arr[i]
-      div.appendChild(card)
+  //     let card=document.createElement("p");
+  //     card.style.paddingLeft="8px"
+  //     card.textContent=arr[i]
+  //     div.appendChild(card)
      
-  }
+  // }
 
-
-
-
+  let card=document.createElement("p");
+  card.textContent="Id_Number"+" : "+id.value
+  div.appendChild(card)
+  card.style.paddingLeft="5px"
  
+
+  let card1=document.createElement("p");
+  card1.textContent="Name"+" : "+name.value
+  div.appendChild(card1)
+  card1.style.paddingLeft="5px"
+
+  let card2=document.createElement("p");
+  card2.textContent="Department"+" : "+select.value
+  div.appendChild(card2)
+  card2.style.paddingLeft="5px"
+
+
+
+  let card3=document.createElement("p");
+  card3.textContent="Level"+" : "+select1.value
+  div.appendChild(card3)
+  card3.style.paddingLeft="5px"
 })
 
