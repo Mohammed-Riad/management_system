@@ -95,8 +95,14 @@ function employe(Employee_ID , Full_Name , Department , Level , URLmgurl)
 
 // }
 
-
-
+let employee0 = new employe(
+	1000,
+	"Ghazi Samer",
+	"Administration",
+	"Senior",
+	"https://randomuser.me/api/portraits/men/20.jpg"
+);
+creatcard(employee0)
 
 
 
@@ -117,29 +123,29 @@ let Emp =new employe(id,name,select,select1,img)
   console.log(allEmployees)
   allEmployees.push(Emp);
   saveToLocal()
+  document.forms[0].reset();
+
+ 
+
 
 })
-
-function saveToLocal(){
-  let strArr = JSON.stringify(allEmployees);
-  localStorage.setItem('employees', strArr); 
+function saveToLocal() {
+	let strArr = JSON.stringify(allEmployees);
+	localStorage.setItem("employees", strArr);
 }
 
+// function getFromLocal() {
+// 	let jsonArr = localStorage.getItem("employees");
+// 	let arr = JSON.parse(jsonArr);
+// 	allEmployees = arr;
+// 	arr.forEach((ele) => {
+// 		creatcard(ele);
+    
+// 	});
+// 	console.log(arr);
+// }
 
-function getFromLocal(){
-  let jsonArr = localStorage.getItem('employees');
-  let arr = JSON.parse(jsonArr);
-  allEmployees = arr;
- for(let i=0;i<arr.length;i++)
- {
-  creatcard(arr[i])
- }
-  console.log(arr);
-}
-
-getFromLocal();
-
-
+// getFromLocal();
 
 
 function creatcard(Emp)
@@ -147,7 +153,7 @@ function creatcard(Emp)
   let div=document.createElement("div");
 
   div.style.width="200px"
-  div.style.height="260px";
+  div.style.height="295px";
   div.style.background="#1976d2"
   div.style.color="black";
   div.style.fontSize="16.50px"
@@ -158,7 +164,7 @@ function creatcard(Emp)
   let img=document.createElement("img")
   img.src=Emp.URLmgurl
   img.style.width="100%"
-  img.style.height="70px"
+  img.style.height="100px"
   div.appendChild(img)
   document.getElementById("container").appendChild(div)
 div.appendChild(img)
