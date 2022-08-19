@@ -1,61 +1,55 @@
-
-// function employe(Employee_ID , Full_Name , Department , Level , URLmgurl, Salary)
-// {
+let allEmployees = [] ;
+function employe(Employee_ID , Full_Name , Department , Level , URLmgurl)
+{
     
-//     this.Employee_ID=Employee_ID;
-//     this.Full_Name=Full_Name;
-//     this.Department=Department;
-//     this.Level=Level;
-//     this.URLmgurl=URLmgurl;
-//     this.Salary=Salary;
+    this.Employee_ID=Employee_ID;
+    this.Full_Name=Full_Name;
+    this.Department=Department;
+    this.Level=Level;
+    this.URLmgurl=URLmgurl;
+ 
 
-//     this.Level1=function(min,max) {
-//         if(this.Level =="senior")
-//         {
-       
-//                 min = Math.ceil(1000);
-//                 max = Math.floor(2000);
-//                  this.Salary=Math.floor(Math.random() * (max - min) + min);
-//                  return this.Salary
-            
-//         }else if(this.Level =="mid-senior")
-//         {
-//             min = Math.ceil(1000);
-//             max = Math.floor(1500);
-//             this.Salary=Math.floor(Math.random() * (max - min) + min);
-//             return this.Salary
-            
-//         }else if (this.Level =="junior")
-//         {
-//             min = Math.ceil(500);
-//             max = Math.floor(1000);
-//             this.Salary=Math.floor(Math.random() * (max - min) + min);
-//             return this.Salary
-//         }
-       
-//     }
+    this.salary = salary(Level)
+    function salary(level) {
+        switch (level) {
+            case "Senior":
+                return getRandomInt(1500, 2000);
+            case "Mid-Senior":
+                return getRandomInt(1000, 1500);
+            case "Junior":
+                return getRandomInt(500, 1000);
+        }
+    }
 
-//     this. head=function()
-//     {
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+  }
+
+    // this. head=function()
+    // {
       
         
     
     
-//         let row2 =document.createElement("tr")
-//         tbody.appendChild(row2)
-//         arr1=[ this.Employee_ID,this.Full_Name,this.Department,this.Level, this.Level1()]
-//         for(let i=0;i<arr1.length;i++)
-//         {
-//             let td=document.createElement("td")
-//             td.innerHTML=arr1[i]
-//             row2.appendChild(td)
-//         }
-//     }
+    //     let row2 =document.createElement("tr")
+    //     tbody.appendChild(row2)
+    //     arr1=[ this.Employee_ID,this.Full_Name,this.Department,this.Level,salary]
+    //     for(let i=0;i<arr1.length;i++)
+    //     {
+    //         let td=document.createElement("td")
+    //         td.innerHTML=arr1[i]
+    //         row2.appendChild(td)
+    //     }
+    // }
 
     
 
                 
-// }
+
+
 
 // let table = document.createElement('table');
 // let thead = document.createElement('thead');
@@ -91,10 +85,8 @@
 
 // let Emp5=new employe(555555,"mohammed abd alazez","it","junior","img","5555")
 
-// let Emp6=new employe(555555,"hala mohammad","it","mid-senior","img","5555")
-
+// let Emp6=new employe(555555,"hala mohammad","it","mid-senior","img","5555") 
 // let Emp7=new employe(555555,"rawan mohammad","it","junior","img","5555")
-
 
 // arr=[Emp,Emp1,Emp2,Emp3,Emp4,Emp5,Emp6]
 // for(let i=0;i<arr.length;i++)
@@ -108,21 +100,54 @@
 
 
 
-let id=document.getElementById("id");
-let name=document.getElementById("name");
-let select = document.getElementById('select');
-
-let select1 = document.getElementById('select1');
-let img=document.getElementById("image")
-
-
 document.getElementById("form").addEventListener('submit',function(e)
 {
   e.preventDefault()
+let id=document.getElementById("id").value;
+let name=document.getElementById("name").value;
+let select = document.getElementById('select').value;
+let select1 = document.getElementById('select1').value;
+let img=document.getElementById("image").value
+
+
+
+let Emp =new employe(id,name,select,select1,img)
+
+  creatcard(Emp)
+  console.log(allEmployees)
+  allEmployees.push(Emp);
+  saveToLocal()
+
+})
+
+function saveToLocal(){
+  let strArr = JSON.stringify(allEmployees);
+  localStorage.setItem('employees', strArr); 
+}
+
+
+function getFromLocal(){
+  let jsonArr = localStorage.getItem('employees');
+  let arr = JSON.parse(jsonArr);
+  allEmployees = arr;
+ for(let i=0;i<arr.length;i++)
+ {
+  creatcard(arr[i])
+ }
+  console.log(arr);
+}
+
+getFromLocal();
+
+
+
+
+function creatcard(Emp)
+{
   let div=document.createElement("div");
 
   div.style.width="200px"
-  div.style.height="245px";
+  div.style.height="260px";
   div.style.background="#1976d2"
   div.style.color="black";
   div.style.fontSize="16.50px"
@@ -131,43 +156,43 @@ document.getElementById("form").addEventListener('submit',function(e)
   div.style.margin="10px"
   document.body.appendChild(document.getElementById("form"))
   let img=document.createElement("img")
+  img.src=Emp.URLmgurl
   img.style.width="100%"
   img.style.height="70px"
   div.appendChild(img)
   document.getElementById("container").appendChild(div)
 div.appendChild(img)
-  // arr=[ id.value,name.value,select.value,select1.value ]
-  // for(let i=0;i<arr.length;i++ )
-  // {
-      
-  //     let card=document.createElement("p");
-  //     card.style.paddingLeft="8px"
-  //     card.textContent=arr[i]
-  //     div.appendChild(card)
-     
-  // }
+  
 
   let card=document.createElement("p");
-  card.textContent="Id_Number"+" : "+id.value
+  card.textContent="Id_Number"+" : "+Emp.Employee_ID
   div.appendChild(card)
   card.style.paddingLeft="5px"
  
 
   let card1=document.createElement("p");
-  card1.textContent="Name"+" : "+name.value
+  card1.textContent="Name"+" : "+Emp.Full_Name
   div.appendChild(card1)
   card1.style.paddingLeft="5px"
 
   let card2=document.createElement("p");
-  card2.textContent="Department"+" : "+select.value
+  card2.textContent="Department"+" : "+Emp.Department
   div.appendChild(card2)
   card2.style.paddingLeft="5px"
 
 
 
   let card3=document.createElement("p");
-  card3.textContent="Level"+" : "+select1.value
+  card3.textContent="Level"+" : "+Emp.Level
   div.appendChild(card3)
   card3.style.paddingLeft="5px"
-})
 
+
+  let card4=document.createElement("p");
+  card4.textContent="Salary"+" : "+Emp.salary
+  div.appendChild(card4)
+  card4.style.paddingLeft="5px"
+
+
+
+}
