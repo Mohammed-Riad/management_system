@@ -1,41 +1,35 @@
 let allEmployees = [];
-function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
 
+function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
   this.Employee_ID = Employee_ID;
   this.Full_Name = Full_Name;
   this.Department = Department;
   this.Level = Level;
   this.URLmgurl = URLmgurl;
+  this.salary = getSalary(Level);
+}
 
-
-  this.salary = salary(Level)
-
-
-
-
-  function salary(level) {
-    switch (level) {
-      case "Senior":
-        return getRandomInt(1500, 2000);
-      case "Mid-Senior":
-        return getRandomInt(1000, 1500);
-      case "Junior":
-        return getRandomInt(500, 1000);
-    }
+getSalary = (level) => {
+  switch (level) {
+    case "Senior":
+      return getRandomInt(1500, 2000);
+    case "Mid-Senior":
+      return getRandomInt(1000, 1500);
+    case "Junior":
+      return getRandomInt(500, 1000);
+    default:
+      return 100;
   }
+}
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-  }
+getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 // this. head=function()
 // {
-
-
-
 
 //     let row2 =document.createElement("tr")
 //     tbody.appendChild(row2)
@@ -48,12 +42,6 @@ function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
 //     }
 // }
 
-
-
-
-
-
-
 // let table = document.createElement('table');
 // let thead = document.createElement('thead');
 // let tbody = document.createElement('tbody');
@@ -61,9 +49,6 @@ function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
 // table.appendChild(thead)
 // table.appendChild(tbody)
 // table.className="taple1";
-
-
-
 
 // let row =document.createElement("tr")
 //     thead.appendChild(row)
@@ -74,7 +59,6 @@ function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
 //         head.innerHTML=arr[i]
 //         row.appendChild(head)
 // }
-
 
 // let Emp=new employe(555555,"mohammed khalel","it","junior","img","5555")
 
@@ -95,7 +79,6 @@ function employe(Employee_ID, Full_Name, Department, Level, URLmgurl) {
 // for(let i=0;i<arr.length;i++)
 // {
 //     arr[i].head()
-
 // }
 
 let employee0 = new employe(
@@ -105,55 +88,55 @@ let employee0 = new employe(
   "Senior",
   "https://randomuser.me/api/portraits/men/20.jpg"
 );
+
 creatcard(employee0)
 
-
-
 document.getElementById("form").addEventListener('submit', function (e) {
-  e.preventDefault()
+  debugger
+  e.preventDefault();
+
   let id = document.getElementById("id").value;
   let name = document.getElementById("name").value;
   let select = document.getElementById('select').value;
   let select1 = document.getElementById('select1').value;
-  let img = document.getElementById("image").value
+  let img = document.getElementById("image").value;
 
+  const isExist = allEmployees.find((emp) => emp.Employee_ID === id);
+  if (isExist) {
+    return alert('Please Enter Another Id')
+  }
 
-
-  let Emp = new employe(id, name, select, select1, img)
+  let Emp = new employe(id, name, select, select1, img);
 
   creatcard(Emp)
   console.log(allEmployees)
   allEmployees.push(Emp);
   saveToLocal()
   document.forms[0].reset();
-
-
-
-
 })
+
 function saveToLocal() {
   let strArr = JSON.stringify(allEmployees);
   localStorage.setItem("employees", strArr);
 }
 
 function getFromLocal() {
+  debugger
   let jsonArr = localStorage.getItem("employees");
   let arr = JSON.parse(jsonArr) || [];
   allEmployees = arr;
   arr.forEach((ele) => {
     creatcard(ele);
   });
-  // console.log(arr);
 }
 
 getFromLocal();
-
 
 function creatcard(Emp) {
   let div = document.createElement("div");
 
   div.style.width = "200px"
-  div.style.height = "295px";
+  div.style.height = "auto";
   div.style.background = "#1976d2"
   div.style.color = "black";
   div.style.fontSize = "16.50px"
@@ -169,12 +152,10 @@ function creatcard(Emp) {
   document.getElementById("container").appendChild(div)
   div.appendChild(img)
 
-
   let card = document.createElement("p");
   card.textContent = "Id_Number" + " : " + Emp.Employee_ID
   div.appendChild(card)
   card.style.paddingLeft = "5px"
-
 
   let card1 = document.createElement("p");
   card1.textContent = "Name" + " : " + Emp.Full_Name
@@ -186,19 +167,34 @@ function creatcard(Emp) {
   div.appendChild(card2)
   card2.style.paddingLeft = "5px"
 
-
-
   let card3 = document.createElement("p");
   card3.textContent = "Level" + " : " + Emp.Level
   div.appendChild(card3)
   card3.style.paddingLeft = "5px"
 
-
   let card4 = document.createElement("p");
-  card4.textContent = "Salary" + " : " + Emp.salary
+  card4.textContent = "Salary" + " : " + Emp.salary;
   div.appendChild(card4)
   card4.style.paddingLeft = "5px"
 
+  let removeBtn = document.createElement('button');
+  removeBtn.id = 'removeEmp-' + Emp.Employee_ID;
+  removeBtn.textContent = 'Remove';
+  div.appendChild(removeBtn);
 
+  removeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
+    const id = removeBtn.id.split('removeEmp-')[1];
+    const index = allEmployees.findIndex((em) => em.Employee_ID === id);
+    allEmployees.splice(index, 1);
+
+    localStorage.removeItem('employees');
+    const strAllEmployees = JSON.stringify(allEmployees);
+    localStorage.setItem('employees', strAllEmployees);
+
+    console.log(id);
+
+    window.location.reload();
+  })
 }
